@@ -56,27 +56,18 @@ Submission Decision
 ## 📂 Project Structure
 
 src/
-├── agent/
-│ ├── stateStore.js # Ad state
-│ ├── conversationFlow.js # Next-question logic
-│ ├── submitAgent.js # Validation + submission
-│ ├── musicHandler.js # Music logic enforcement
-│ ├── llmClient.js # Gemini integration (with fallback)
-│ └── systemPrompt.js # Prompt design
-│
-├── rules/
-│ ├── campaignRules.js
-│ └── musicRules.js
-│
-├── api/
-│ ├── oauthMock.js
-│ └── tiktokAdsMock.js
-│
-├── utils/
-│ └── errorInterpreter.js
-│
-├── cli.js # CLI conversational agent (entry point)
-└── server.js # Optional HTTP server
+├── main.js              # CLI entry point
+├── agent.js             # Core AI agent + conversation orchestration
+├── prompts.js           # LLM system + user prompt templates
+├── state.js             # Conversation / ad state management
+├── validators.js        # Business rules + validation logic
+├── musicRules.js        # Music-specific rules (separated for clarity)
+├── tiktokAuth.js        # OAuth flow (mocked)
+├── tiktokApi.js         # TikTok Ads API client (mocked)
+├── llmClient.js         # Gemini integration with fallback
+├── errorInterpreter.js  # API / validation error handling
+└── config.js            # Configuration & constants
+
 
 ---
 
@@ -217,7 +208,8 @@ Streaming LLM responses
 🏁 Final Note
 This project is built as a production-ready AI workflow, not a demo chatbot.
 The focus is on correct reasoning, rule enforcement, and engineering judgment.
-👤 Author
+
+Author
 Juneb Khan
 
 ---
