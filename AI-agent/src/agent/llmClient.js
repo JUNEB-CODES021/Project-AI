@@ -26,7 +26,7 @@ const MOCK_RESPONSE = {
 
 export async function runAgent(conversation) {
   try {
-    console.log("🧠 Calling Gemini API...");
+    console.log("Calling Gemini API...");
 
     // Initialize Gemini client
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
@@ -48,9 +48,9 @@ Respond ONLY with valid JSON matching the required schema.
     const result = await model.generateContent(prompt);
     const text = result.response.text();
 
-    console.log("📩 Raw Gemini response:\n", text);
+    console.log("Raw Gemini response:\n", text);
 
-    // 🔴 IMPORTANT: Gemini often wraps JSON in text → extract safely
+    //  IMPORTANT: Gemini often wraps JSON in text → extract safely
     const jsonStart = text.indexOf("{");
     const jsonEnd = text.lastIndexOf("}");
 
